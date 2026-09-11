@@ -348,41 +348,145 @@ function ListeningSpeakingView9({ skill }: { skill: PracticeSkill }) {
         <OwlBadge>{lesson?.introMy}</OwlBadge>
       </header>
 
+      {skill === "listening" ? (
+        <>
+          <LessonAudioPlayer
+            src={audio}
+            script={lesson?.intro ?? ""}
+            label="Unit 9 — Climate Change (listening track)"
+            hint="အသံဖိုင်ကို နားထောင်ပြီး အောက်ပါ ဖော်ပြချက်တွေ မှန် (TRUE) လား မှား (FALSE) လား ဆုံးဖြတ်ပါ။"
+          />
+
+          <ExerciseGroup
+            title="Exercise A — Listen and mark TRUE (T) or FALSE (F)"
+            titleMy="လေ့ကျင့်ခန်း A — နားထောင်ပြီး မှန်/မှား ရွေးပါ"
+            instructions="Listen to the recording and say whether the following statements are TRUE (T) or FALSE (F)."
+            enableStructure={false}
+            placeholder="TRUE or FALSE…"
+            items={(lesson?.questions ?? []).map((q: any) => ({
+              id: q.id,
+              text: q.question,
+              translation: listening9D_translations[q.id] ?? "",
+              answer: q.suggested_answer ?? q.answer ?? "",
+            }))}
+          />
+        </>
+      ) : (
+        <SpeakingView9D audio={audio} lesson={lesson} />
+      )}
+    </div>
+  );
+}
+
+function SpeakingView9D({ audio, lesson }: { audio: string | null; lesson: any }) {
+  return (
+    <>
       <LessonAudioPlayer
         src={audio}
         script={lesson?.intro ?? ""}
-        label={skill === "speaking" ? "Model pronunciation" : "Listening track"}
-        hint={
-          skill === "speaking"
-            ? "နမူနာ အသံထွက်ကို နားထောင်ပြီး လိုက်ဆိုကြည့်ပါ။"
-            : "နားထောင်ပြီး ကွက်လပ်တွေကို ဖြည့်ပါ။"
-        }
+        label="Model pronunciation"
+        hint="နမူနာ အသံထွက်ကို နားထောင်ပြီး လိုက်ဆိုကြည့်ပါ။"
       />
 
-      <ExerciseGroup
-        title={
-          skill === "speaking"
-            ? "Exercise B — Speak about the topic"
-            : "Exercise A — Listen and complete"
-        }
-        titleMy={
-          skill === "speaking"
-            ? "လေ့ကျင့်ခန်း B — အကြောင်းအရာအကြောင်း ပြောပါ"
-            : "လေ့ကျင့်ခန်း A — နားထောင်ပြီး ဖြည့်စွက်ပါ"
-        }
-        instructions={lesson?.intro ?? ""}
-        enableStructure={false}
-        placeholder={skill === "speaking" ? "Type what you would say…" : "Type your answer…"}
-        items={(skill === "speaking" ? (lesson?.bonusQuestions ?? []) : (lesson?.questions ?? [])).map(
-          (q: any) => ({
-            id: q.id,
-            text: q.question,
-            translation: "",
-            answer: q.suggested_answer ?? q.answer ?? "",
-          }),
-        )}
-      />
-    </div>
+      <section className="rounded-2xl border border-border bg-card p-5">
+        <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary">
+          <BookOpen className="h-3.5 w-3.5" /> Expressing Opinions — ထင်မြင်ချက် ဖော်ပြခြင်း
+        </div>
+        <div className="mt-3 grid gap-4 sm:grid-cols-2">
+          <div>
+            <p className="text-sm font-semibold">Personal · ကိုယ်ပိုင်အမြင်</p>
+            <ul className="mt-2 space-y-1.5 text-sm">
+              {opinionPhrases9D.personal.map((p) => (
+                <li key={p.en} className="rounded-lg border border-border bg-background p-2">
+                  <span className="font-medium">{p.en}</span>
+                  <span className="block text-xs text-muted-foreground">{p.my}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className="text-sm font-semibold">General · ယေဘုယျအမြင်</p>
+            <ul className="mt-2 space-y-1.5 text-sm">
+              {opinionPhrases9D.general.map((p) => (
+                <li key={p.en} className="rounded-lg border border-border bg-background p-2">
+                  <span className="font-medium">{p.en}</span>
+                  <span className="block text-xs text-muted-foreground">{p.my}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="rounded-2xl border border-border bg-card p-5">
+        <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary">
+          <ListChecks className="h-3.5 w-3.5" /> Exercise B — Complete the dialogue
+        </div>
+        <p className="mt-2 text-sm text-muted-foreground">
+          လေ့ကျင့်ခန်း B — ပေးထားသော အသုံးအနှုန်းများဖြင့် စကားဝိုင်း ကွက်လပ်များကို ဖြည့်ပါ။
+        </p>
+
+        <div className="mt-3 flex flex-wrap gap-1.5">
+          {dialogue9D.options.map((o) => (
+            <span
+              key={o.letter}
+              className="rounded-full bg-secondary px-2.5 py-1 text-xs font-medium"
+            >
+              ({o.letter}) {o.text}
+            </span>
+          ))}
+        </div>
+
+        <div className="mt-4 space-y-2.5">
+          {dialogue9D.lines.map((line, i) => (
+            <p key={i} className="text-sm leading-relaxed">
+              <span className="mr-1.5 font-bold text-primary">{line.speaker}:</span>
+              {line.text.split(/(\{\d\})/).map((part, j) => {
+                const m = part.match(/^\{(\d)\}$/);
+                if (!m) return <span key={j}>{part}</span>;
+                return (
+                  <span
+                    key={j}
+                    className="mx-0.5 inline-block rounded bg-primary/10 px-2 font-semibold text-primary"
+                  >
+                    ({m[1]}) ______
+                  </span>
+                );
+              })}
+            </p>
+          ))}
+        </div>
+
+        <div className="mt-4 space-y-2">
+          {Object.entries(dialogue9D.answers).map(([n, a]) => (
+            <div key={n} className="rounded-xl border border-border bg-background p-3">
+              <p className="text-sm font-medium">Blank ({n})</p>
+              <ToggleReveal label="Show answer" tone="emerald">
+                ({a.letter}) {a.text} — {a.my}
+              </ToggleReveal>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="rounded-2xl border border-border bg-card p-5">
+        <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary">
+          <ListChecks className="h-3.5 w-3.5" /> Exercise C — In pairs, practise the dialogue
+        </div>
+        <p className="mt-2 text-sm leading-relaxed">
+          လေ့ကျင့်ခန်း C — သူငယ်ချင်းတစ်ယောက်နှင့် A နှင့် B အခန်းကဏ္ဍ ခွဲယူပြီး စကားဝိုင်းကို
+          အသံထွက် လေ့ကျင့်ပါ။
+        </p>
+        <ToggleReveal label="Show the completed dialogue" tone="emerald">
+          {dialogue9D.lines
+            .map(
+              (line) =>
+                `${line.speaker}: ${line.text.replace(/\{(\d)\}/g, (_, n) => dialogue9D.answers[Number(n)].text)}`,
+            )
+            .join("\n")}
+        </ToggleReveal>
+      </section>
+    </>
   );
 }
 
