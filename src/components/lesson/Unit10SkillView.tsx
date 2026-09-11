@@ -326,20 +326,35 @@ function ListeningSpeakingView10({ skill }: { skill: PracticeSkill }) {
         }
       />
 
-      {skill === "listening" && lesson?.questions?.length ? (
-        <ExerciseGroup
-          title="Exercise A — Listen and complete the table"
-          titleMy="လေ့ကျင့်ခန်း A — နားထောင်ပြီး ဇယားကို ဖြည့်ပါ"
-          instructions={lesson.intro}
-          enableStructure={false}
-          placeholder="Type what you hear…"
-          items={lesson.questions.map((q: any) => ({
-            id: q.id,
-            text: q.question,
-            translation: "",
-            answer: q.suggested_answer ?? "",
-          }))}
-        />
+      {skill === "listening" ? (
+        <>
+          <ExerciseGroup
+            title="Exercise A1 — Advantages of pre-packaged food"
+            titleMy="လေ့ကျင့်ခန်း A1 — ကြိုတင်ထုပ်ပိုးထားသော အစားအစာ၏ အားသာချက်များ"
+            instructions="Listen to 'Artificial Additives to Avoid' and fill in each blank in the Advantages column."
+            enableStructure={false}
+            placeholder="Type the missing word…"
+            items={listening10D_advantages.map((r) => ({
+              id: r.id,
+              text: r.text,
+              translation: r.my,
+              answer: r.answer,
+            }))}
+          />
+          <ExerciseGroup
+            title="Exercise A2 — Disadvantages of pre-packaged food"
+            titleMy="လေ့ကျင့်ခန်း A2 — ကြိုတင်ထုပ်ပိုးထားသော အစားအစာ၏ အားနည်းချက်များ"
+            instructions="Now fill in each blank in the Disadvantages column."
+            enableStructure={false}
+            placeholder="Type the missing word…"
+            items={listening10D_disadvantages.map((r) => ({
+              id: r.id,
+              text: r.text,
+              translation: r.my,
+              answer: r.answer,
+            }))}
+          />
+        </>
       ) : null}
 
       {skill === "speaking" && lesson?.bonusQuestions?.length ? (
