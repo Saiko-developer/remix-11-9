@@ -173,8 +173,8 @@ function VocabularyView10() {
         <h2 className="mt-2 text-2xl font-bold leading-tight">{lesson?.title}</h2>
         <p className="mt-1 text-sm text-muted-foreground">{lesson?.titleMy}</p>
         <OwlBadge>
-          {lesson?.introMy}{" "}
-          <strong>အဖြေတွေကို မပြသေးပါဘူး</strong> — ကိုယ်တိုင် စဉ်းစားပြီး ကြိုးစားကြည့်ပါ။
+          {lesson?.introMy} <strong>အဖြေတွေကို မပြသေးပါဘူး</strong> — ကိုယ်တိုင် စဉ်းစားပြီး
+          ကြိုးစားကြည့်ပါ။
         </OwlBadge>
       </header>
 

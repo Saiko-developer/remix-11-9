@@ -32,7 +32,8 @@ export const vocab10B: VocabItem[] = [
     word: "responsible",
     pronunciation: "/rɪˈspɒnsəbl/ — ရစ်ပေါ့စ်စန်ဘယ်",
     meaningMy: "တာဝန်ရှိသော၊ ထိန်းသိမ်းစောင့်ရှောက်ရသော",
-    exampleEn: "The Food and Drug Administration (FDA) is responsible for the safety of food and drug in the country.",
+    exampleEn:
+      "The Food and Drug Administration (FDA) is responsible for the safety of food and drug in the country.",
   },
   {
     word: "balanced",
@@ -50,7 +51,8 @@ export const vocab10B: VocabItem[] = [
     word: "supply",
     pronunciation: "/səˈplaɪ/ — စပလိုင်",
     meaningMy: "ပမာဏ၊ ထောက်ပံ့မှု",
-    exampleEn: "We need a daily supply of essential nutrients like starch, sugar, proteins, fats, vitamins, and minerals.",
+    exampleEn:
+      "We need a daily supply of essential nutrients like starch, sugar, proteins, fats, vitamins, and minerals.",
   },
   {
     word: "artificially",
@@ -62,13 +64,15 @@ export const vocab10B: VocabItem[] = [
     word: "allergy",
     pronunciation: "/ˈælədʒi/ — အယ်လာဂျီ",
     meaningMy: "ဓာတ်မတည့်မှု၊ အဖြစ်အပျက်",
-    exampleEn: "When we have a food allergy, it can make us sick, causing us to vomit after eating certain foods.",
+    exampleEn:
+      "When we have a food allergy, it can make us sick, causing us to vomit after eating certain foods.",
   },
   {
     word: "additive",
     pronunciation: "/ˈædətɪv/ — အဒတိဗ်",
     meaningMy: "ပေါင်းထည့်ပစ္စည်း၊ ဓာတုပစ္စည်း",
-    exampleEn: "Food colouring is often an additive that is used to improve the appearance of food.",
+    exampleEn:
+      "Food colouring is often an additive that is used to improve the appearance of food.",
   },
   {
     word: "colourants",
@@ -80,7 +84,8 @@ export const vocab10B: VocabItem[] = [
     word: "pesticides",
     pronunciation: "/ˈpestɪsaɪdz/ — ပက်စတိုက်ဆိုက်",
     meaningMy: "ပိုးသတ်ဆေးများ",
-    exampleEn: "Farmers use pesticides to kill pests, especially insects, that destroy their produce.",
+    exampleEn:
+      "Farmers use pesticides to kill pests, especially insects, that destroy their produce.",
   },
   {
     word: "hygienically",
@@ -126,7 +131,10 @@ export const grammar10C = {
   whyMy:
     "'not only ... but also' သည် ဝါကျအတွင်း အရေးကြီးသော အချက်အလက်များကို အလေးပေးဖော်ပြရန် သို့မဟုတ် နှစ်ခုနှင့်တပြိုင်နက် ဖြစ်ပေါ်လာသော အရာများကို ချိတ်ဆက်ရန် အသုံးပြုသည်။ 'The more ..., the more ...' သည် ဆက်စပ်မှုရှိသော ပြောင်းလဲမှုများကို ရှင်းလင်းစွာ ဖော်ပြရန် အသုံးပြုပြီး ပညာရပ်ဆိုင်ရာ၊ သိပ္ပံဆိုင်ရာ သို့မဟုတ် လူနေမှုဘဝဆိုင်ရာ အခြေအနေများကို ရှင်းပြရာတွင် အသုံးဝင်သည်။",
   examples: [
-    { en: "She has not only a great sense of humour but also good communication skills.", phrase: "not only ... but also" },
+    {
+      en: "She has not only a great sense of humour but also good communication skills.",
+      phrase: "not only ... but also",
+    },
     { en: "The more I study, the better grades I get.", phrase: "The more ..., the more ..." },
     { en: "The stronger the coffee is, the less I sleep.", phrase: "The more ..., the less ..." },
   ],
@@ -225,7 +233,11 @@ export const dialogue10D: DialogueLine[] = [
     optionKey: "b",
     my: "သင် ပုံမှန် ဘယ်သစ်သီးတွေ စားလေ့ရှိလဲ။",
   },
-  { speaker: "B", text: "Oranges, bananas and apples.", my: "လိမ္မော်သီး၊ ငှက်ပျောသီးနဲ့ ပန်းသီးတွေပါ။" },
+  {
+    speaker: "B",
+    text: "Oranges, bananas and apples.",
+    my: "လိမ္မော်သီး၊ ငှက်ပျောသီးနဲ့ ပန်းသီးတွေပါ။",
+  },
   {
     speaker: "A",
     blank: 2,
@@ -235,7 +247,11 @@ export const dialogue10D: DialogueLine[] = [
     optionKey: "e",
     my: "အဲဒီထဲက ဘယ်ဟာကို အနှစ်သက်ဆုံးလဲ၊ ဘာကြောင့်လဲ။",
   },
-  { speaker: "B", text: "Oranges most. I just love their taste.", my: "လိမ္မော်သီးကို အနှစ်သက်ဆုံးပါ။ အရသာကို သဘောကျလို့ပါ။" },
+  {
+    speaker: "B",
+    text: "Oranges most. I just love their taste.",
+    my: "လိမ္မော်သီးကို အနှစ်သက်ဆုံးပါ။ အရသာကို သဘောကျလို့ပါ။",
+  },
   {
     speaker: "A",
     blank: 3,
