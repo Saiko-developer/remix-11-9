@@ -9,6 +9,7 @@ import { BookOpen, Languages, ListChecks } from "lucide-react";
 
 import { LessonAudioPlayer } from "@/components/LessonAudioPlayer";
 import {
+  AnswerTryBox,
   ExerciseGroup,
   OwlBadge,
   ToggleReveal,
@@ -20,9 +21,13 @@ import { GrammarScriptView } from "@/components/lesson/GrammarScriptView";
 import { UNIT10_GRAMMAR } from "@/data/grammar/unit10";
 import unit10 from "@/data/textbookUnit10.json";
 import {
+  dialogue10D,
+  dialogueOptions10D,
   grammar10C,
   listening10D_advantages,
   listening10D_disadvantages,
+  pairPracticeModel10D,
+  usefulPhrases10D,
   partA10C_translations,
   partB10C_translations,
   preReading10A_translations,
@@ -168,8 +173,8 @@ function VocabularyView10() {
         <h2 className="mt-2 text-2xl font-bold leading-tight">{lesson?.title}</h2>
         <p className="mt-1 text-sm text-muted-foreground">{lesson?.titleMy}</p>
         <OwlBadge>
-          {lesson?.introMy}{" "}
-          <strong>အဖြေတွေကို မပြသေးပါဘူး</strong> — ကိုယ်တိုင် စဉ်းစားပြီး ကြိုးစားကြည့်ပါ။
+          {lesson?.introMy} <strong>အဖြေတွေကို မပြသေးပါဘူး</strong> — ကိုယ်တိုင် စဉ်းစားပြီး
+          ကြိုးစားကြည့်ပါ။
         </OwlBadge>
       </header>
 
@@ -357,20 +362,103 @@ function ListeningSpeakingView10({ skill }: { skill: PracticeSkill }) {
         </>
       ) : null}
 
-      {skill === "speaking" && lesson?.bonusQuestions?.length ? (
-        <ExerciseGroup
-          title="Exercise B — Complete and practise the dialogue"
-          titleMy="လေ့ကျင့်ခန်း B — စကားဝိုင်းကို ဖြည့်စွက်ပြီး လေ့ကျင့်ပါ"
-          instructions={lesson.intro}
-          enableStructure={false}
-          placeholder="Type the expression…"
-          items={lesson.bonusQuestions.map((q: any) => ({
-            id: q.id,
-            text: q.question,
-            translation: "",
-            answer: q.answer ?? "",
-          }))}
-        />
+      {skill === "speaking" ? (
+        <>
+          <section className="rounded-2xl border border-border bg-card p-5">
+            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary">
+              <ListChecks className="h-3.5 w-3.5" /> Exercise B — Complete the dialogue
+            </div>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Asking for information on the fruits you have — ပေးထားသော အသုံးအနှုန်း (a–f) များဖြင့်
+              ကွက်လပ်များကို ဖြည့်ပါ။
+            </p>
+            <ul className="mt-3 flex flex-wrap gap-2">
+              {dialogueOptions10D.map((o) => (
+                <li
+                  key={o.key}
+                  className="rounded-full border border-border bg-background px-3 py-1 text-sm"
+                >
+                  ({o.key}) {o.text}
+                </li>
+              ))}
+            </ul>
+
+            <ol className="mt-4 space-y-3">
+              {dialogue10D.map((line, i) => (
+                <li key={i} className="rounded-xl border border-border bg-background p-3">
+                  <p className="text-sm font-medium leading-relaxed">
+                    <span className="mr-1 font-bold text-primary">{line.speaker}:</span>
+                    {line.blank ? (
+                      <>
+                        {line.before}
+                        <span className="mx-1 rounded bg-primary/10 px-2 py-0.5 font-semibold">
+                          ({line.blank}) ________
+                        </span>
+                        {line.after}
+                      </>
+                    ) : (
+                      line.text
+                    )}
+                  </p>
+                  <p className="mt-1 text-xs text-muted-foreground">{line.my}</p>
+                  {line.blank ? (
+                    <div className="mt-2">
+                      <AnswerTryBox
+                        correct={line.answer ?? ""}
+                        placeholder="Type the expression…"
+                      />
+                      <ToggleReveal label="Show answer" tone="emerald">
+                        ({line.blank}) {line.answer} — option ({line.optionKey})
+                      </ToggleReveal>
+                    </div>
+                  ) : null}
+                </li>
+              ))}
+            </ol>
+          </section>
+
+          <section className="rounded-2xl border border-border bg-card p-5">
+            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary">
+              <ListChecks className="h-3.5 w-3.5" /> Exercise C — Pair practice
+            </div>
+            <p className="mt-2 text-sm leading-relaxed">
+              In pairs, practise substituting the dialogue with your favourite snack, using the
+              useful language phrases below. — အဖော်နှင့်အတူ မိမိနှစ်သက်ရာ သရေစာဖြင့် အစားထိုး၍
+              လေ့ကျင့်ပါ။
+            </p>
+            <div className="mt-4 grid gap-4 sm:grid-cols-2">
+              <div className="rounded-xl border border-border bg-background p-3">
+                <p className="text-xs font-semibold uppercase tracking-wider text-primary">
+                  Asking for information
+                </p>
+                <ul className="mt-2 space-y-2 text-sm">
+                  {usefulPhrases10D.asking.map((p) => (
+                    <li key={p.en}>
+                      <span className="font-medium">{p.en}</span>
+                      <span className="block text-xs text-muted-foreground">{p.my}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="rounded-xl border border-border bg-background p-3">
+                <p className="text-xs font-semibold uppercase tracking-wider text-primary">
+                  Asking for opinions
+                </p>
+                <ul className="mt-2 space-y-2 text-sm">
+                  {usefulPhrases10D.opinions.map((p) => (
+                    <li key={p.en}>
+                      <span className="font-medium">{p.en}</span>
+                      <span className="block text-xs text-muted-foreground">{p.my}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <ToggleReveal label="Show a model substitution dialogue" tone="emerald">
+              {pairPracticeModel10D}
+            </ToggleReveal>
+          </section>
+        </>
       ) : null}
     </div>
   );

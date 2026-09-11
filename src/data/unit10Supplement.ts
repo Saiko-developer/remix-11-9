@@ -32,7 +32,8 @@ export const vocab10B: VocabItem[] = [
     word: "responsible",
     pronunciation: "/rɪˈspɒnsəbl/ — ရစ်ပေါ့စ်စန်ဘယ်",
     meaningMy: "တာဝန်ရှိသော၊ ထိန်းသိမ်းစောင့်ရှောက်ရသော",
-    exampleEn: "The Food and Drug Administration (FDA) is responsible for the safety of food and drug in the country.",
+    exampleEn:
+      "The Food and Drug Administration (FDA) is responsible for the safety of food and drug in the country.",
   },
   {
     word: "balanced",
@@ -50,7 +51,8 @@ export const vocab10B: VocabItem[] = [
     word: "supply",
     pronunciation: "/səˈplaɪ/ — စပလိုင်",
     meaningMy: "ပမာဏ၊ ထောက်ပံ့မှု",
-    exampleEn: "We need a daily supply of essential nutrients like starch, sugar, proteins, fats, vitamins, and minerals.",
+    exampleEn:
+      "We need a daily supply of essential nutrients like starch, sugar, proteins, fats, vitamins, and minerals.",
   },
   {
     word: "artificially",
@@ -62,13 +64,15 @@ export const vocab10B: VocabItem[] = [
     word: "allergy",
     pronunciation: "/ˈælədʒi/ — အယ်လာဂျီ",
     meaningMy: "ဓာတ်မတည့်မှု၊ အဖြစ်အပျက်",
-    exampleEn: "When we have a food allergy, it can make us sick, causing us to vomit after eating certain foods.",
+    exampleEn:
+      "When we have a food allergy, it can make us sick, causing us to vomit after eating certain foods.",
   },
   {
     word: "additive",
     pronunciation: "/ˈædətɪv/ — အဒတိဗ်",
     meaningMy: "ပေါင်းထည့်ပစ္စည်း၊ ဓာတုပစ္စည်း",
-    exampleEn: "Food colouring is often an additive that is used to improve the appearance of food.",
+    exampleEn:
+      "Food colouring is often an additive that is used to improve the appearance of food.",
   },
   {
     word: "colourants",
@@ -80,7 +84,8 @@ export const vocab10B: VocabItem[] = [
     word: "pesticides",
     pronunciation: "/ˈpestɪsaɪdz/ — ပက်စတိုက်ဆိုက်",
     meaningMy: "ပိုးသတ်ဆေးများ",
-    exampleEn: "Farmers use pesticides to kill pests, especially insects, that destroy their produce.",
+    exampleEn:
+      "Farmers use pesticides to kill pests, especially insects, that destroy their produce.",
   },
   {
     word: "hygienically",
@@ -126,33 +131,37 @@ export const grammar10C = {
   whyMy:
     "'not only ... but also' သည် ဝါကျအတွင်း အရေးကြီးသော အချက်အလက်များကို အလေးပေးဖော်ပြရန် သို့မဟုတ် နှစ်ခုနှင့်တပြိုင်နက် ဖြစ်ပေါ်လာသော အရာများကို ချိတ်ဆက်ရန် အသုံးပြုသည်။ 'The more ..., the more ...' သည် ဆက်စပ်မှုရှိသော ပြောင်းလဲမှုများကို ရှင်းလင်းစွာ ဖော်ပြရန် အသုံးပြုပြီး ပညာရပ်ဆိုင်ရာ၊ သိပ္ပံဆိုင်ရာ သို့မဟုတ် လူနေမှုဘဝဆိုင်ရာ အခြေအနေများကို ရှင်းပြရာတွင် အသုံးဝင်သည်။",
   examples: [
-    { en: "She has not only a great sense of humour but also good communication skills.", phrase: "not only ... but also" },
+    {
+      en: "She has not only a great sense of humour but also good communication skills.",
+      phrase: "not only ... but also",
+    },
     { en: "The more I study, the better grades I get.", phrase: "The more ..., the more ..." },
     { en: "The stronger the coffee is, the less I sleep.", phrase: "The more ..., the less ..." },
   ],
 };
-/* -------------------- 10D Listening (Artificial Additives) -------------------- */
+/* ------------------- 10D Listening & Speaking (Food Safety) ------------------- */
 
-export type AdditiveRow = { id: number; text: string; answer: string; my: string };
+export type TableRow = { id: number; text: string; answer: string; my: string };
 
-export const listening10D_advantages: AdditiveRow[] = [
+/** 10D · A — "Foods in Supermarkets" table, Advantages column. */
+export const listening10D_advantages: TableRow[] = [
   {
     id: 1,
-    text: "Most of the food we buy in ________ nowadays is pre-packaged or processed.",
+    text: "A lot of foods we buy in ________ are pre-packaged and pre-prepared.",
     answer: "supermarkets",
-    my: "ယနေ့ခေတ်တွင် ကျွန်ုပ်တို့ ဝယ်ယူသော အစားအစာအများစုမှာ စူပါမားကက်များမှ ကြိုတင်ထုပ်ပိုးထားသော အစားအစာများ ဖြစ်သည်။",
+    my: "စူပါမားကက်များတွင် ဝယ်ယူသော အစားအစာအများအပြားမှာ ကြိုတင်ထုပ်ပိုး၊ ကြိုတင်ပြင်ဆင်ထားပြီး ဖြစ်သည်။",
   },
   {
     id: 2,
-    text: "They need little or no ________ before they are ready to eat.",
-    answer: "cooking / preparation",
-    my: "ယင်းတို့ကို စားသုံးရန် ချက်ပြုတ်ရန် အလွန်နည်းပါးသည် သို့မဟုတ် လုံးဝမလိုအပ်ပါ။",
+    text: "The pre-packaged and pre-prepared foods need little or no ________ before ready to be eaten.",
+    answer: "cooking",
+    my: "ကြိုတင်ထုပ်ပိုးထားသော အစားအစာများသည် မစားမီ ချက်ပြုတ်ရန် အလွန်နည်းပါးသည် သို့မဟုတ် လုံးဝမလိုပါ။",
   },
   {
     id: 3,
-    text: "They are ________ for customers.",
+    text: "The prepacked foods are ________ for customers.",
     answer: "convenient",
-    my: "ဝယ်ယူသူများအတွက် အဆင်ပြေလွယ်ကူသည်။",
+    my: "ကြိုတင်ထုပ်ပိုးထားသော အစားအစာများသည် ဝယ်ယူသူများအတွက် အဆင်ပြေသည်။",
   },
   {
     id: 4,
@@ -162,29 +171,154 @@ export const listening10D_advantages: AdditiveRow[] = [
   },
 ];
 
-export const listening10D_disadvantages: AdditiveRow[] = [
+/** 10D · A — "Foods in Supermarkets" table, Disadvantages column. */
+export const listening10D_disadvantages: TableRow[] = [
   {
     id: 1,
-    text: "They contain chemicals and ________.",
+    text: "Most of the foods contain chemicals and ________.",
     answer: "additives",
-    my: "ဓာတုပစ္စည်းများနှင့် ပေါင်းထည့်ပစ္စည်း (additives) များ ပါဝင်သည်။",
+    my: "အစားအစာအများစုတွင် ဓာတုပစ္စည်းများနှင့် ပေါင်းထည့်ပစ္စည်း (additives) များ ပါဝင်သည်။",
   },
   {
     id: 2,
-    text: "They can harm ________ and animals.",
+    text: "They harm ________ and animals.",
     answer: "humans",
-    my: "လူသားများနှင့် တိရစ္ဆာန်များကို ထိခိုက်စေနိုင်သည်။",
+    my: "ယင်းတို့သည် လူသားများနှင့် တိရစ္ဆာန်များကို ထိခိုက်စေသည်။",
   },
   {
     id: 3,
-    text: "They are used in meats, ________ and farm produce.",
+    text: "Many chemicals are used in meats, ________ and farm produce.",
     answer: "fish",
-    my: "အသားများ၊ ငါးများနှင့် လယ်ယာထွက်ကုန်များတွင် အသုံးပြုကြသည်။",
+    my: "ဓာတုပစ္စည်းများစွာကို အသားများ၊ ငါးများနှင့် လယ်ယာထွက်ကုန်များတွင် အသုံးပြုကြသည်။",
   },
   {
     id: 4,
-    text: "They add great costs to our ________ system.",
+    text: "Eating unsafe food will add great costs to our ________ system.",
     answer: "healthcare",
-    my: "ကျွန်ုပ်တို့၏ ကျန်းမာရေးစောင့်ရှောက်မှုစနစ်အတွက် ကုန်ကျစရိတ် များစွာ တိုးစေသည်။",
+    my: "ဘေးအန္တရာယ်ရှိသော အစားအစာ စားသုံးခြင်းသည် ကျန်းမာရေးစောင့်ရှောက်မှုစနစ်အတွက် ကုန်ကျစရိတ် များစွာ တိုးစေမည်။",
   },
 ];
+
+/** 10D · B — the six expressions offered for the dialogue blanks. */
+export const dialogueOptions10D = [
+  { key: "a", text: "is there" },
+  { key: "b", text: "what fruits" },
+  { key: "c", text: "how often" },
+  { key: "d", text: "do you think" },
+  { key: "e", text: "do you like most" },
+  { key: "f", text: "how are" },
+];
+
+export type DialogueLine = {
+  speaker: "A" | "B";
+  /** Blank number when this line contains one. */
+  blank?: number;
+  before?: string;
+  after?: string;
+  /** Plain line when there is no blank. */
+  text?: string;
+  answer?: string;
+  optionKey?: string;
+  my: string;
+};
+
+/** 10D · B — "Asking for information on the fruits you have". */
+export const dialogue10D: DialogueLine[] = [
+  {
+    speaker: "A",
+    blank: 1,
+    before: "",
+    after: " do you usually eat?",
+    answer: "What fruits",
+    optionKey: "b",
+    my: "သင် ပုံမှန် ဘယ်သစ်သီးတွေ စားလေ့ရှိလဲ။",
+  },
+  {
+    speaker: "B",
+    text: "Oranges, bananas and apples.",
+    my: "လိမ္မော်သီး၊ ငှက်ပျောသီးနဲ့ ပန်းသီးတွေပါ။",
+  },
+  {
+    speaker: "A",
+    blank: 2,
+    before: "Among them, which ",
+    after: " and why?",
+    answer: "do you like most",
+    optionKey: "e",
+    my: "အဲဒီထဲက ဘယ်ဟာကို အနှစ်သက်ဆုံးလဲ၊ ဘာကြောင့်လဲ။",
+  },
+  {
+    speaker: "B",
+    text: "Oranges most. I just love their taste.",
+    my: "လိမ္မော်သီးကို အနှစ်သက်ဆုံးပါ။ အရသာကို သဘောကျလို့ပါ။",
+  },
+  {
+    speaker: "A",
+    blank: 3,
+    before: "",
+    after: " oranges are good for health?",
+    answer: "Do you think",
+    optionKey: "d",
+    my: "လိမ္မော်သီးက ကျန်းမာရေးအတွက် ကောင်းတယ်လို့ ထင်လား။",
+  },
+  {
+    speaker: "B",
+    text: "Yes, I do as long as they contain no sweetener.",
+    my: "ဟုတ်ကဲ့၊ ချိုဆေး မပါသရွေ့ ကောင်းတယ်လို့ ထင်ပါတယ်။",
+  },
+  {
+    speaker: "A",
+    blank: 4,
+    before: "",
+    after: " oranges good for health?",
+    answer: "How are",
+    optionKey: "f",
+    my: "လိမ္မော်သီးက ကျန်းမာရေးအတွက် ဘယ်လိုကောင်းတာလဲ။",
+  },
+  {
+    speaker: "B",
+    text: "They contain a lot of vitamins A and C, and they are good for the teeth.",
+    my: "ဗီတာမင် A နဲ့ C အများကြီး ပါဝင်ပြီး သွားအတွက်လည်း ကောင်းပါတယ်။",
+  },
+  {
+    speaker: "A",
+    blank: 5,
+    before: "",
+    after: " do you eat them?",
+    answer: "How often",
+    optionKey: "c",
+    my: "ဘယ်လောက် မကြာခဏ စားလဲ။",
+  },
+  { speaker: "B", text: "Almost every day.", my: "နေ့တိုင်းလိုလို စားပါတယ်။" },
+  {
+    speaker: "A",
+    blank: 6,
+    before: "",
+    after: " any kind of fruit you don't like?",
+    answer: "Is there",
+    optionKey: "a",
+    my: "မကြိုက်တဲ့ သစ်သီးတစ်မျိုးမျိုး ရှိလား။",
+  },
+  {
+    speaker: "B",
+    text: "Yes, dragon fruits. I don't find it tasty.",
+    my: "ရှိပါတယ်၊ နဂါးမောက်သီးပါ။ အရသာမရှိဘူးလို့ ထင်ပါတယ်။",
+  },
+];
+
+/** 10D · C — useful language phrases for the pair-practice substitution. */
+export const usefulPhrases10D = {
+  asking: [
+    { en: "What snack do you …?", my: "ဘယ်သရေစာကို … လဲ။" },
+    { en: "How often do you …?", my: "ဘယ်လောက် မကြာခဏ … လဲ။" },
+    { en: "Have you (ever) had / eaten …?", my: "… ကို စားဖူးလား။" },
+    { en: "Is there …?", my: "… ရှိလား။" },
+  ],
+  opinions: [
+    { en: "Why do you like it?", my: "ဘာကြောင့် ကြိုက်တာလဲ။" },
+    { en: "Do you think it is …?", my: "အဲဒါက … လို့ ထင်လား။" },
+  ],
+};
+
+export const pairPracticeModel10D =
+  "A: What snack do you usually eat? B: Potato chips and chocolate biscuits. A: Among them, which do you like most and why? B: Potato chips most. I just love their crunchy texture. A: Do you think they are good for health? B: No, I don't think so because they contain a lot of salt and oil. A: How often do you eat them? B: Only once or twice a week. A: Is there any snack you don't like? B: Yes, salted plums. I don't find them tasty.";
