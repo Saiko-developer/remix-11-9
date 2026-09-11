@@ -514,3 +514,104 @@ export const grammar9C = {
     { en: "If you had warned me, I would not have told your father about that party.", phrase: "would not have told" },
   ],
 };
+
+/* --------------------- 9D Listening and Speaking ---------------------- */
+
+/** Burmese translation of each TRUE/FALSE listening statement (Part A). */
+export const listening9D_translations: Record<number, string> = {
+  1: "သစ်တောများသည် တိရစ္ဆာန် သန်းပေါင်းများစွာ၏ နေအိမ်များ ဖြစ်သည်။",
+  2: "သစ်တောများအတွင်း၌ ချောင်းများနှင့် မြစ်များ မရှိနိုင်ပါ။",
+  3: "ကျွန်ုပ်တို့သည် သစ်တောအနီးတွင် မနေသင့်ပါ။",
+  4: "သစ်တောအနီးတွင် နေထိုင်သူများသည် ဝင်ငွေ မရှိကြပါ။",
+  5: "ကျွန်ုပ်တို့သည် သစ်တောများမှ သစ်လုံးနှင့် သစ်သားများ ရရှိသည်။",
+  6: "ခရီးသွားများသည် သဘာဝ၏ အလှဆုံးကို ကြည့်ရှုရန် သစ်တောဒေသများသို့ လာလည်ကြသည်။",
+  7: "သစ်ပင်များ ရှိပါက ရာသီဥတုပြောင်းလဲမှုကို ကျွန်ုပ်တို့ တားဆီးနိုင်သည်။",
+  8: "သစ်ပင်များသည် ရာသီဥတုကို တည်ငြိမ်စေနိုင်သည်။",
+  9: "သစ်ပင်များသည် ကာဗွန်ဒိုင်အောက်ဆိုဒ်ကို စုပ်ယူသည်။",
+  10: "အောက်ဆီဂျင်နှင့် ကာဗွန်ဒိုင်အောက်ဆိုဒ် နှစ်မျိုးလုံးသည် ဓာတ်ငွေ့ဆိုးများ ဖြစ်သည်။",
+};
+
+export type OpinionPhrase = { en: string; my: string };
+
+/** Part B reference panel — phrases for expressing opinions. */
+export const opinionPhrases9D: {
+  personal: OpinionPhrase[];
+  general: OpinionPhrase[];
+} = {
+  personal: [
+    { en: "In my opinion ...", my: "ကျွန်ုပ်၏ အမြင်အရ ..." },
+    { en: "In my experience ...", my: "ကျွန်ုပ်၏ အတွေ့အကြုံအရ ..." },
+    { en: "Speaking for myself ...", my: "ကိုယ့်ဘက်က ပြောရလျှင် ..." },
+    { en: "Personally, I think ...", my: "ကိုယ်တိုင်ကတော့ ထင်ပါတယ် ..." },
+    { en: "I (strongly) believe that ...", my: "ကျွန်ုပ် (အခိုင်အမာ) ယုံကြည်သည်မှာ ..." },
+    { en: "I really feel that ...", my: "ကျွန်ုပ် တကယ်ခံစားရသည်မှာ ..." },
+    { en: "If you ask me ...", my: "ကျွန်ုပ်ကို မေးမည်ဆိုလျှင် ..." },
+  ],
+  general: [
+    { en: "Some people say that ...", my: "အချို့သောသူများ ပြောကြသည်မှာ ..." },
+    {
+      en: "Many / Most people think / believe that ...",
+      my: "လူအများစု ထင်မြင်/ယုံကြည်ကြသည်မှာ ...",
+    },
+    { en: "Everybody knows that ...", my: "လူတိုင်း သိကြသည်မှာ ..." },
+    { en: "According to scientists ...", my: "သိပ္ပံပညာရှင်များ၏ အဆိုအရ ..." },
+    { en: "The thing is that ...", my: "အဓိကအချက်မှာ ..." },
+    { en: "The point is that ...", my: "အဆိုလိုသည်မှာ ..." },
+  ],
+};
+
+export type DialogueLine = {
+  speaker: "A" | "B";
+  /** Sentence text; `{n}` marks blank number n. */
+  text: string;
+};
+
+/** Part B dialogue: options, script with blanks, and the answer key. */
+export const dialogue9D: {
+  options: { letter: string; text: string }[];
+  lines: DialogueLine[];
+  answers: Record<number, { letter: string; text: string; my: string }>;
+} = {
+  options: [
+    { letter: "a", text: "I agree" },
+    { letter: "b", text: "in my opinion" },
+    { letter: "c", text: "I know what you mean" },
+    { letter: "d", text: "of course it is" },
+    { letter: "e", text: "personally, I think" },
+    { letter: "f", text: "the point is that" },
+    { letter: "g", text: "that's what I think" },
+    { letter: "h", text: "that's very true" },
+  ],
+  lines: [
+    {
+      speaker: "A",
+      text: "Hey, did you hear that? A new parking site is going to be built in the park over there.",
+    },
+    {
+      speaker: "B",
+      text: "Really? But {1}, that's crazy. What we need is more trees. {2} cars should disappear. They pollute the air and they make too much noise.",
+    },
+    { speaker: "A", text: "{3} we can't live without cars today. Without cars, how will you get to work?" },
+    { speaker: "B", text: "I can take the bus." },
+    { speaker: "A", text: "Yes, {4}, but we use cars for so many purposes." },
+    { speaker: "B", text: "{5}, but we can always find other alternatives." },
+    {
+      speaker: "A",
+      text: "You have a point there, but if we didn't have cars, we would need better public transport.",
+    },
+    { speaker: "B", text: "Yes, {6}" },
+    { speaker: "A", text: "But still, having a car is so convenient." },
+    { speaker: "B", text: "{7}, I know. But we can't have everything, can we?" },
+    { speaker: "A", text: "Exactly. {8} too. We can't have everything. Still, so I prefer having a car." },
+  ],
+  answers: {
+    1: { letter: "b", text: "in my opinion", my: "ကျွန်ုပ်၏ အမြင်အရ — ကိုယ်ပိုင်ထင်မြင်ချက် ဖော်ပြခြင်း။" },
+    2: { letter: "e", text: "personally, I think", my: "ကိုယ်တိုင်ကတော့ ထင်သည် — ကိုယ်ပိုင်အမြင်ကို ပိုအလေးပေးခြင်း။" },
+    3: { letter: "f", text: "The point is that", my: "အဓိကအချက်မှာ — အရေးကြီးဆုံး အကြောင်းပြချက် တင်ပြခြင်း။" },
+    4: { letter: "h", text: "that's very true", my: "အဲဒါ အလွန်မှန်ပါတယ် — တစ်စိတ်တစ်ပိုင်း သဘောတူခြင်း။" },
+    5: { letter: "c", text: "I know what you mean", my: "ဘာဆိုလိုမှန်း နားလည်ပါတယ် — နားလည်မှု ပြသခြင်း။" },
+    6: { letter: "a", text: "I agree", my: "သဘောတူပါတယ် — သဘောတူညီမှု ဖော်ပြခြင်း။" },
+    7: { letter: "d", text: "Of course it is", my: "ဟုတ်တာပေါ့ — အပြည့်အဝ လက်ခံခြင်း။" },
+    8: { letter: "g", text: "that's what I think", my: "ဒါက ကျွန်ုပ်ထင်မြင်ချက်ပါ — ကိုယ်ပိုင်အမြင် အတည်ပြုခြင်း။" },
+  },
+};
