@@ -131,3 +131,60 @@ export const grammar10C = {
     { en: "The stronger the coffee is, the less I sleep.", phrase: "The more ..., the less ..." },
   ],
 };
+/* -------------------- 10D Listening (Artificial Additives) -------------------- */
+
+export type AdditiveRow = { id: number; text: string; answer: string; my: string };
+
+export const listening10D_advantages: AdditiveRow[] = [
+  {
+    id: 1,
+    text: "Most of the food we buy in ________ nowadays is pre-packaged or processed.",
+    answer: "supermarkets",
+    my: "ယနေ့ခေတ်တွင် ကျွန်ုပ်တို့ ဝယ်ယူသော အစားအစာအများစုမှာ စူပါမားကက်များမှ ကြိုတင်ထုပ်ပိုးထားသော အစားအစာများ ဖြစ်သည်။",
+  },
+  {
+    id: 2,
+    text: "They need little or no ________ before they are ready to eat.",
+    answer: "cooking / preparation",
+    my: "ယင်းတို့ကို စားသုံးရန် ချက်ပြုတ်ရန် အလွန်နည်းပါးသည် သို့မဟုတ် လုံးဝမလိုအပ်ပါ။",
+  },
+  {
+    id: 3,
+    text: "They are ________ for customers.",
+    answer: "convenient",
+    my: "ဝယ်ယူသူများအတွက် အဆင်ပြေလွယ်ကူသည်။",
+  },
+  {
+    id: 4,
+    text: "They save a lot of ________.",
+    answer: "time",
+    my: "အချိန်များစွာ သက်သာစေသည်။",
+  },
+];
+
+export const listening10D_disadvantages: AdditiveRow[] = [
+  {
+    id: 1,
+    text: "They contain chemicals and ________.",
+    answer: "additives",
+    my: "ဓာတုပစ္စည်းများနှင့် ပေါင်းထည့်ပစ္စည်း (additives) များ ပါဝင်သည်။",
+  },
+  {
+    id: 2,
+    text: "They can harm ________ and animals.",
+    answer: "humans",
+    my: "လူသားများနှင့် တိရစ္ဆာန်များကို ထိခိုက်စေနိုင်သည်။",
+  },
+  {
+    id: 3,
+    text: "They are used in meats, ________ and farm produce.",
+    answer: "fish",
+    my: "အသားများ၊ ငါးများနှင့် လယ်ယာထွက်ကုန်များတွင် အသုံးပြုကြသည်။",
+  },
+  {
+    id: 4,
+    text: "They add great costs to our ________ system.",
+    answer: "healthcare",
+    my: "ကျွန်ုပ်တို့၏ ကျန်းမာရေးစောင့်ရှောက်မှုစနစ်အတွက် ကုန်ကျစရိတ် များစွာ တိုးစေသည်။",
+  },
+];
