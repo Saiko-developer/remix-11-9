@@ -31,6 +31,9 @@ import {
   partB9C_translations,
   grammar9C,
   vocab9B,
+  listening9D_translations,
+  opinionPhrases9D,
+  dialogue9D,
 } from "@/data/unit9Supplement";
 import { getUnitAudio } from "@/lib/localData";
 import type { PracticeSkill } from "@/lib/practice";
