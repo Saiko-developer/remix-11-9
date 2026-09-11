@@ -21,6 +21,8 @@ import { UNIT10_GRAMMAR } from "@/data/grammar/unit10";
 import unit10 from "@/data/textbookUnit10.json";
 import {
   grammar10C,
+  listening10D_advantages,
+  listening10D_disadvantages,
   partA10C_translations,
   partB10C_translations,
   preReading10A_translations,
