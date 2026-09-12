@@ -27,6 +27,7 @@ import {
   partC11A_breakdowns,
   partC11A_translations,
   partA11C_translations,
+  partA11D_translations,
   partB11C_translations,
   grammar11C,
   vocab11B,
@@ -418,7 +419,7 @@ function ListeningSpeakingView11({ skill }: { skill: PracticeSkill }) {
           items={data.part_A.exercises.map((e: any) => ({
             id: e.question_number,
             text: e.question ?? e.text,
-            translation: "",
+             translation: partA11D_translations[e.question_number] ?? "",
             answer: e.answer ?? "Listen to the dialogue to confirm your answer",
           }))}
         />
