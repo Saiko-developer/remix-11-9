@@ -38,8 +38,6 @@ import {
   partD12C_translations,
   partA12D_translations,
   partB12D_translations,
-  listening12D_transcript,
-  partC12D_modelDialogue,
   writing12E_structureMy,
   grammar12C,
   vocab12B,
@@ -62,51 +60,10 @@ function getUnit12Section(prefix: string) {
   );
 }
 
-/**
- * Local-only Burmese translations for the 12D "Comprehension check" questions.
- * Kept inside this file on purpose so nothing leaks into shared localisation.
- */
-const compCheck12D_translationsMy: Record<string, string> = {
-  "How is life in urban areas described in the talk?":
-    "အသံဖိုင်တွင် မြို့ပြဘဝကို ဘယ်လိုဖော်ပြထားလဲ။",
-  "How is rural life described?": "ကျေးလက်ဘဝကို ဘယ်လိုဖော်ပြထားလဲ။",
-  "What does the urban settlement include?":
-    "မြို့ပြနေထိုင်မှုဒေသတွင် ဘာတွေ ပါဝင်သလဲ။",
-  "What does the rural settlement include?":
-    "ကျေးလက်နေထိုင်မှုဒေသတွင် ဘာတွေ ပါဝင်သလဲ။",
-  "What is said about the environment in the two areas?":
-    "ဒေသနှစ်ခု၏ ပတ်ဝန်းကျင်အကြောင်း ဘယ်လိုဆိုထားလဲ။",
-  "What kind of work are urban people engaged in?":
-    "မြို့ပြနေလူတွေက ဘယ်လိုအလုပ်မျိုး လုပ်ကိုင်သလဲ။",
-  "What is the primary occupation of rural people?":
-    "ကျေးလက်နေလူတွေ၏ အဓိကအလုပ်အကိုင်က ဘာလဲ။",
-  "Compare the population of urban and rural areas.":
-    "မြို့ပြနှင့် ကျေးလက်ဒေသများ၏ လူဦးရေကို နှိုင်းယှဉ်ပါ။",
-  "Why do urban people often change their jobs?":
-    "မြို့ပြနေလူတွေက အလုပ်ကို အဘယ်ကြောင့် မကြာခဏ ပြောင်းသလဲ။",
-  "Do rural people change their jobs often?":
-    "ကျေးလက်နေလူတွေက အလုပ်ကို မကြာခဏ ပြောင်းသလားလဲ။",
-  // 12D speaking (bonus) prompts
-  "You phone the clinic. How do you begin the call?":
-    "သင် ဆေးခန်းကို ဖုန်းဆက်သည်။ ဖုန်းကို ဘယ်လို စတင်ပြောမလဲ။",
-  "The receptionist asks what your problem is. What do you say?":
-    "လက်ခံဝန်ထမ်းက သင့်ရဲ့ပြဿနာကို မေးသည်။ ဘယ်လိုပြောမလဲ။",
-  "The receptionist asks if you can come in the morning. What do you say?":
-    "လက်ခံဝန်ထမ်းက မနက်ပိုင်း လာနိုင်မလားဟု မေးသည်။ ဘယ်လိုပြောမလဲ။",
-  "She offers 10 o'clock. How do you accept?":
-    "သူက ၁၀ နာရီကို အဆိုပြုသည်။ ဘယ်လို လက်ခံမလဲ။",
-  "She asks for your name. What do you say?":
-    "သူက သင့်နာမည်ကို မေးသည်။ ဘယ်လိုပြောမလဲ။",
-  "How do you end the call politely?": "ဖုန်းကို ယဉ်ကျေးစွာ ဘယ်လို အဆုံးသတ်မလဲ။",
-  "Now make an appointment with a dentist: how do you ask for an early appointment because of toothache?":
-    "အခု သွားဆရာဝန်နှင့် ချိန်းဆိုပါ — သွားကိုက်တာကြောင့် အချိန်စောစော ချိန်းဆိုမှုကို ဘယ်လို တောင်းဆိုမလဲ။",
-};
-
 /** Remove trailing parenthetical grammar hints such as (အခန်းကဏ္ဍ → as). */
 function stripHints(text: string) {
   return text.replace(/\s*\([^)]*\)\s*$/g, "").trim();
 }
-
 
 export function Unit12SkillView({ skill }: { skill: PracticeSkill }) {
   if (skill === "reading") return <ReadingView12 />;
@@ -614,7 +571,7 @@ function ListeningSpeakingView12({ skill }: { skill: PracticeSkill }) {
 
       <LessonAudioPlayer
         src={audio}
-        script={listening12D_transcript.map((l) => l.en).join(" ")}
+        script={lesson?.intro ?? ""}
         label={skill === "speaking" ? "Model pronunciation" : "Listening track"}
         hint={
           skill === "speaking"
@@ -622,27 +579,6 @@ function ListeningSpeakingView12({ skill }: { skill: PracticeSkill }) {
             : "နားထောင်ပြီး ကွက်လပ်တွေကို ဖြည့်ပါ။"
         }
       />
-
-      {skill === "listening" ? (
-        <section className="rounded-2xl border border-border bg-card p-5">
-          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary">
-            <BookOpen className="h-3.5 w-3.5" /> Listening script — Unit 12 · Urbanization
-          </div>
-          <p className="mt-1 text-xs text-muted-foreground">
-            အသံဖိုင်ကို နားထောင်ပြီးမှ စာကြောင်းများကို ဖွင့်ကြည့်ပါ။
-          </p>
-          <ToggleReveal label="Show transcript" hiddenLabel="Hide transcript" tone="primary">
-            <div className="space-y-3">
-              {listening12D_transcript.map((line, i) => (
-                <div key={i}>
-                  <p className="font-medium">{line.en}</p>
-                  <p className="text-xs text-muted-foreground">{line.my}</p>
-                </div>
-              ))}
-            </div>
-          </ToggleReveal>
-        </section>
-      ) : null}
 
       {skill === "listening" && data?.part_A?.table_rows?.length ? (
         <section className="rounded-2xl border border-border bg-card p-5">
@@ -665,9 +601,15 @@ function ListeningSpeakingView12({ skill }: { skill: PracticeSkill }) {
                     <td className="py-3 pr-4 font-medium capitalize">{row.feature}</td>
                     <td className="py-3 px-4">
                       <p>{row.urban}</p>
+                      <ToggleReveal label="Translate" icon={Languages}>
+                        {partA12D_translations[row.urban_number] ?? ""}
+                      </ToggleReveal>
                     </td>
                     <td className="py-3 pl-4">
                       <p>{row.rural}</p>
+                      <ToggleReveal label="Translate" icon={Languages}>
+                        {partA12D_translations[row.rural_number] ?? ""}
+                      </ToggleReveal>
                     </td>
                   </tr>
                 ))}
@@ -681,12 +623,11 @@ function ListeningSpeakingView12({ skill }: { skill: PracticeSkill }) {
                 titleMy="လေ့ကျင့်ခန်း A — နားထောင်ပြီး ဖြည့်စွက်ပါ"
                 instructions={data.part_A.instructions}
                 enableStructure={false}
-                enableTranslate={false}
                 placeholder="Type what you hear…"
                 items={data.part_A.exercises.map((e: any) => ({
                   id: e.question_number,
                   text: e.question ?? e.text,
-                  translation: "",
+                  translation: partA12D_translations[e.question_number] ?? "",
                   answer: e.answer ?? "Listen to the talk to confirm your answer",
                 }))}
               />
@@ -731,6 +672,9 @@ function ListeningSpeakingView12({ skill }: { skill: PracticeSkill }) {
                 ) : (
                   <div className="mt-1">
                     <p className="font-medium">({line.slot}) __________</p>
+                    <ToggleReveal label="Translate" icon={Languages}>
+                      {partB12D_translations[line.slot] ?? ""}
+                    </ToggleReveal>
                   </div>
                 )}
               </div>
@@ -744,45 +688,16 @@ function ListeningSpeakingView12({ skill }: { skill: PracticeSkill }) {
                 titleMy="လေ့ကျင့်ခန်း B — အသုံးအနှုန်း ရွေးချယ်ပါ"
                 instructions={data.part_B.instructions}
                 enableStructure={false}
-                enableTranslate={false}
                 placeholder="a–f…"
                 items={data.part_B.exercises.map((e: any) => ({
                   id: e.question_number,
                   text: e.question ?? e.text,
-                  translation: "",
+                  translation: partB12D_translations[e.question_number] ?? "",
                   answer: e.answer ?? "",
                 }))}
               />
             </div>
           ) : null}
-        </section>
-      ) : null}
-
-      {skill === "speaking" ? (
-        <section className="rounded-2xl border border-border bg-card p-5">
-          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary">
-            <ListChecks className="h-3.5 w-3.5" /> Exercise C — pair work
-          </div>
-          <p className="mt-1 text-sm">
-            {data?.part_C?.instructions ??
-              "In pairs, practise making an appointment with a dentist."}
-          </p>
-          <p className="mt-1 text-xs text-muted-foreground">
-            တွဲဖက်နှင့် အတူ သွားဆရာဝန်နှင့် ချိန်းဆိုမှု ပြုလုပ်ပုံကို လေ့ကျင့်ပါ။
-          </p>
-          <ToggleReveal label="Show model dialogue" hiddenLabel="Hide model dialogue" tone="emerald">
-            <div className="space-y-3">
-              {partC12D_modelDialogue.map((line, i) => (
-                <div key={i}>
-                  <span className="text-xs font-semibold uppercase tracking-wider text-primary">
-                    {line.speaker}
-                  </span>
-                  <p className="font-medium">{line.en}</p>
-                  <p className="text-xs text-muted-foreground">{line.my}</p>
-                </div>
-              ))}
-            </div>
-          </ToggleReveal>
         </section>
       ) : null}
 
@@ -800,7 +715,7 @@ function ListeningSpeakingView12({ skill }: { skill: PracticeSkill }) {
         ).map((q: any) => ({
           id: q.id,
           text: q.question,
-          translation: compCheck12D_translationsMy[String(q.question ?? "").trim()] ?? "",
+          translation: "",
           answer: q.suggested_answer ?? q.answer ?? "",
         }))}
       />
